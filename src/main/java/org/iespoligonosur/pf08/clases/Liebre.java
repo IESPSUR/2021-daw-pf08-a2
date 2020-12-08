@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Liebre {
 
-	int dado6;
+	static int dado6;
 	Scanner teclado;
 	
 	/**
@@ -28,9 +28,10 @@ public class Liebre {
 			System.out.println("Adivina lo que a salido");
 			int adivina= teclado.nextInt();
 			if (adivina==dado6) {
+				System.out.println("Has acertado te moveras " + dado6 +" pasos.");
 				return dado6;
 			}else {
-				System.out.println("Lo sentimos salio " + dado6+ " intentelo el proximo turno");
+				System.out.println("Lo sentimos salio el numero " + dado6+ ". Intentelo el proximo turno.");
 				dado6=0;
 				return dado6;
 			}
@@ -47,6 +48,6 @@ public class Liebre {
 		dado6=DadoLiebre(dado6, teclado);
 		System.out.println(dado6);
 		
-		teclado.close
+		teclado.close();
 	}*/
 }

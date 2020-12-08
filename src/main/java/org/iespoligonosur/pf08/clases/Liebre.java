@@ -20,7 +20,7 @@ public class Liebre {
 	 * @param teclado
 	 * @return
 	 */
-	public int MovimientoLiebre(int dado6, Scanner teclado) {
+	public int DadoLiebre(int dado6, Scanner teclado) {
 		dado6 = (int) Math.floor(Math.random() * 6+1);
 		if (dado6==3)
 			return dado6;
@@ -44,7 +44,7 @@ public class Liebre {
 	/*public static void main(String[] args) {
 		Scanner teclado = new Scanner(System.in);
 
-		dado6=MovimientoLiebre(dado6, teclado);
+		dado6=DadoLiebre(dado6, teclado);
 		System.out.println(dado6);
 		
 		teclado.close

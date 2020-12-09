@@ -11,7 +11,7 @@ public class CorreCaminos {
 	 * @param teclado
 	 * @return
 	 */
-	public int DadoLiebre(int dado10) {
+	public int DadoCorrecaminos(int dado10) {
 		int resto;
 		
 		dado10 = (int) Math.floor(Math.random() * 10+1);
@@ -29,7 +29,7 @@ public class CorreCaminos {
 	 */
 	/*public static void main(String[] args) {
 
-		dado10=DadoLiebre(dado10);
+		dado10=DadoCorrecaminos(dado10);
 		System.out.println(dado10);
 		
 	}*/

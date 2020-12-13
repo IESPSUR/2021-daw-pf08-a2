@@ -38,20 +38,25 @@ public class ProgramaCarrera {
 	/**
 	 * es una prueba de dado para tortuga y liebre
 	 */
-	IJugador s = new Liebre("ruben");
-	IJugador r = new Tortuga("manuel");
+	IJugador l = new Liebre("ruben");
+	IJugador t = new Tortuga("manuel");
+	IJugador c = new CorreCaminos("lolo");
 
 	
 	for(int i=0;i<10;i++) {
-	s.avanza(teclado);
-	r.avanza(null);
+	l.avanza(teclado);
+	t.avanza(null);
+	c.avanza(null);
 	}
 	
-	System.out.println( "La velocidad del ultimo turno de liebre fue de "+s.getVelocidadUltimoTurno()+ " pasos");
-	System.out.println("La velocidad alcanzada maxima fue liebre fue de " +s.getVelocidadAlcanzadaMaxima()+ " pasos");
+	System.out.println( "La velocidad del ultimo turno de liebre fue de "+l.getVelocidadUltimoTurno()+ " pasos");
+	System.out.println("La velocidad alcanzada maxima fue liebre fue de " +l.getVelocidadAlcanzadaMaxima()+ " pasos");
 	
-	System.out.println( "La velocidad del ultimo turno de tortuga fue de "+ r.getVelocidadUltimoTurno()+ " pasos");
-	System.out.println("La velocidad alcanzada maxima de tortuga fue de " + r.getVelocidadAlcanzadaMaxima() + " pasos");
+	System.out.println( "La velocidad del ultimo turno de tortuga fue de "+ t.getVelocidadUltimoTurno()+ " pasos");
+	System.out.println("La velocidad alcanzada maxima de tortuga fue de " + t.getVelocidadAlcanzadaMaxima() + " pasos");
+
+	System.out.println( "La velocidad del ultimo turno de correcaminos fue de "+ c.getVelocidadUltimoTurno()+ " pasos");
+	System.out.println("La velocidad alcanzada maxima de correcaminos fue de " + c.getVelocidadAlcanzadaMaxima() + " pasos");
 	}
 	
 	/**

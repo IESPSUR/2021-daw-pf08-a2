@@ -1,5 +1,7 @@
 package org.iespoligonosur.pf08.clases;
 
+import java.util.Scanner;
+
 public interface IJugador {
 
 	/**
@@ -37,5 +39,5 @@ public interface IJugador {
 	 * Este método lanza el dado del jugador que se comportara segun su tipo.
 	 * El avance modifica el estado interno del objeto
 	 */
-	public void avanza();
+	public int avanza(Scanner teclado);
 }

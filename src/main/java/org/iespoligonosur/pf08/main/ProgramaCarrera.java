@@ -1,8 +1,16 @@
 package org.iespoligonosur.pf08.main;
-
+import org.iespoligonosur.pf08.clases.JugadorBasico;
 import java.time.LocalDateTime;
+import java.util.Scanner;
 
 import org.iespoligonosur.pf08.clases.IJugador;
+import org.iespoligonosur.pf08.clases.Liebre;
+import org.iespoligonosur.pf08.clases.DadoBase;
+import org.iespoligonosur.pf08.clases.CorreCaminos;
+import org.iespoligonosur.pf08.clases.TipoJugador;
+import org.iespoligonosur.pf08.clases.Tortuga;
+import org.iespoligonosur.pf08.clases.IDado;
+
 
 public class ProgramaCarrera {
 
@@ -25,6 +33,30 @@ public class ProgramaCarrera {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+
+	/**
+	 * es una prueba de dado para tortuga y liebre
+	 */
+	IJugador l = new Liebre("ruben");
+	IJugador t = new Tortuga("manuel");
+	IJugador c = new CorreCaminos("lolo");
+
+	
+	for(int i=0;i<10;i++) {
+	l.avanza(teclado);
+	t.avanza(null);
+	c.avanza(null);
+	}
+	
+	System.out.println( "La velocidad del ultimo turno de liebre fue de "+l.getVelocidadUltimoTurno()+ " pasos");
+	System.out.println("La velocidad alcanzada maxima fue liebre fue de " +l.getVelocidadAlcanzadaMaxima()+ " pasos");
+	
+	System.out.println( "La velocidad del ultimo turno de tortuga fue de "+ t.getVelocidadUltimoTurno()+ " pasos");
+	System.out.println("La velocidad alcanzada maxima de tortuga fue de " + t.getVelocidadAlcanzadaMaxima() + " pasos");
+
+	System.out.println( "La velocidad del ultimo turno de correcaminos fue de "+ c.getVelocidadUltimoTurno()+ " pasos");
+	System.out.println("La velocidad alcanzada maxima de correcaminos fue de " + c.getVelocidadAlcanzadaMaxima() + " pasos");
 	}
 	
 	/**

@@ -13,10 +13,8 @@ public class Tortuga extends JugadorBasico  {
 	private static final TipoJugador tipo = TipoJugador.TORTUGA;
 
 
-	int avanza;
+	int [] avanza= new int[100]; 
 	int contador=0;
-	int [] VelocidadUltimoTurno = new int[contador];
-	int [] VelocidadAlcanzadaMaxima = new int[contador];
 
 	IDado tresCaras = new DadoBase(3) {
 		
@@ -53,27 +51,31 @@ public class Tortuga extends JugadorBasico  {
 	
 	@Override
 	public int getVelocidadUltimoTurno() {
+		// TODO Auto-generated method stub
+		int num = avanza.length;
+		int [] VelocidadUltimoTurno = new int[num];
+		for (int x=0;x<VelocidadUltimoTurno.length;x++)
+			VelocidadUltimoTurno[x] = avanza[x];
 		
-		return VelocidadUltimoTurno[VelocidadUltimoTurno.length-1];
+		return VelocidadUltimoTurno[contador-1];
 	}
 
-	
 	@Override
 	public int getVelocidadAlcanzadaMaxima() {
-		/*
-		int num = VelocidadAlcanzadaMaxima.length;
-		int [] array = new int[num];
-		for (int x=0;x<array.length;x++)
-			  array[x] = VelocidadAlcanzadaMaxima[x];
-		*/
+		
+		int num = avanza.length;
+		int [] VelocidadAlcanzadaMaxima = new int[num];
+		for (int x=0;x<VelocidadAlcanzadaMaxima.length;x++)
+			VelocidadAlcanzadaMaxima[x] = avanza[x];
+		
 		
 		/*
 		 * Si no funciona como esta abajo descomentar arriba y cambiar abajo VelocidadAlcanzadaMaxima por array
 		 */
 		
 		
-		for (int columna = 0; columna < VelocidadAlcanzadaMaxima.length; columna++) {
-			for (int elemento = columna+1; elemento < VelocidadAlcanzadaMaxima.length; elemento++) {
+		for (int columna = 0; columna < contador; columna++) {
+			for (int elemento = columna+1; elemento < contador; elemento++) {
 				
 				if(VelocidadAlcanzadaMaxima[columna]>VelocidadAlcanzadaMaxima[elemento]) {
 					int aux = VelocidadAlcanzadaMaxima[columna];
@@ -84,7 +86,8 @@ public class Tortuga extends JugadorBasico  {
 			}
 			
 		}
-		return VelocidadAlcanzadaMaxima[VelocidadAlcanzadaMaxima.length-1];
+		return VelocidadAlcanzadaMaxima[contador-1];
+
 	}
 
 	@Override
@@ -94,11 +97,12 @@ public class Tortuga extends JugadorBasico  {
 	}
 
 	@Override
-	public void avanza(Scanner teclado) {
-		avanza = tresCaras.lanzarDado();
-		VelocidadUltimoTurno [contador]=avanza;
-		VelocidadAlcanzadaMaxima [contador]=avanza;
+	public int avanza(Scanner teclado) {
+		
+		int avanzar = tresCaras.lanzarDado();
+		int contar=contador;
 		contador++;
+		return avanza[contar]=avanzar;
 
 	}
 

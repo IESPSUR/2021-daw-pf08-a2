@@ -3,12 +3,12 @@ import org.iespoligonosur.pf08.clases.JugadorBasico;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
-import org.iespoligonosur.pf08.clases.Tortuga;
 import org.iespoligonosur.pf08.clases.IJugador;
 import org.iespoligonosur.pf08.clases.Liebre;
 import org.iespoligonosur.pf08.clases.DadoBase;
 import org.iespoligonosur.pf08.clases.CorreCaminos;
 import org.iespoligonosur.pf08.clases.TipoJugador;
+import org.iespoligonosur.pf08.clases.Tortuga;
 import org.iespoligonosur.pf08.clases.IDado;
 
 
@@ -35,10 +35,23 @@ public class ProgramaCarrera {
 	public static void main(String[] args) {
 		Scanner teclado = new Scanner(System.in);
 
-	
+	/**
+	 * es una prueba de dado para tortuga y liebre
+	 */
 	IJugador s = new Liebre("ruben");
+	IJugador r = new Tortuga("manuel");
+
+	
+	for(int i=0;i<10;i++) {
 	s.avanza(teclado);
-	System.out.println(s.getVelocidadUltimoTurno());
+	r.avanza(null);
+	}
+	
+	System.out.println( "La velocidad del ultimo turno de liebre fue de "+s.getVelocidadUltimoTurno()+ " pasos");
+	System.out.println("La velocidad alcanzada maxima fue liebre fue de " +s.getVelocidadAlcanzadaMaxima()+ " pasos");
+	
+	System.out.println( "La velocidad del ultimo turno de tortuga fue de "+ r.getVelocidadUltimoTurno()+ " pasos");
+	System.out.println("La velocidad alcanzada maxima de tortuga fue de " + r.getVelocidadAlcanzadaMaxima() + " pasos");
 	}
 	
 	/**

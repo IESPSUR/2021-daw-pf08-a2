@@ -6,11 +6,9 @@ public class Liebre extends JugadorBasico {
 	private static final TipoJugador tipo = TipoJugador.LIEBRE;
 
 	
-	int avanza;
-	int contador=1;
-	int [] VelocidadUltimoTurno = new int[contador];
-	int [] VelocidadAlcanzadaMaxima = new int[contador];
-	int dado;
+	int [] avanza= new int[100]; 
+	int contador=0;
+
 	
 	IDado seisCaras = new DadoBase(6) {
 		
@@ -41,21 +39,21 @@ public class Liebre extends JugadorBasico {
 	@Override
 	public int getVelocidadUltimoTurno() {
 		// TODO Auto-generated method stub
-		int num = VelocidadUltimoTurno.length;
-		int [] array = new int[num];
-		for (int x=0;x<array.length;x++)
-			  array[x] = VelocidadUltimoTurno[x];
+		int num = avanza.length;
+		int [] VelocidadUltimoTurno = new int[num];
+		for (int x=0;x<VelocidadUltimoTurno.length;x++)
+			VelocidadUltimoTurno[x] = avanza[x];
 		
-		return array[array.length-1];
+		return VelocidadUltimoTurno[contador-1];
 	}
 
 	@Override
 	public int getVelocidadAlcanzadaMaxima() {
 		
-		int num = VelocidadAlcanzadaMaxima.length;
-		int [] array = new int[num];
-		for (int x=0;x<array.length;x++)
-			  array[x] = VelocidadAlcanzadaMaxima[x];
+		int num = avanza.length;
+		int [] VelocidadAlcanzadaMaxima = new int[num];
+		for (int x=0;x<VelocidadAlcanzadaMaxima.length;x++)
+			VelocidadAlcanzadaMaxima[x] = avanza[x];
 		
 		
 		/*
@@ -63,19 +61,19 @@ public class Liebre extends JugadorBasico {
 		 */
 		
 		
-		for (int columna = 0; columna < array.length; columna++) {
-			for (int elemento = columna+1; elemento < array.length; elemento++) {
+		for (int columna = 0; columna < contador; columna++) {
+			for (int elemento = columna+1; elemento < contador; elemento++) {
 				
-				if(array[columna]>array[elemento]) {
-					int aux = array[columna];
-					array[columna]=array[elemento];
-					array[elemento]=aux;
+				if(VelocidadAlcanzadaMaxima[columna]>VelocidadAlcanzadaMaxima[elemento]) {
+					int aux = VelocidadAlcanzadaMaxima[columna];
+					VelocidadAlcanzadaMaxima[columna]=VelocidadAlcanzadaMaxima[elemento];
+					VelocidadAlcanzadaMaxima[elemento]=aux;
 				}
 				
 			}
 			
 		}
-		return VelocidadAlcanzadaMaxima[VelocidadAlcanzadaMaxima.length-1];
+		return VelocidadAlcanzadaMaxima[contador-1];
 
 	}
 
@@ -87,36 +85,31 @@ public class Liebre extends JugadorBasico {
 	}
 
 	@Override
-	public void avanza(Scanner teclado) {
+	public int avanza(Scanner teclado) {
 		// TODO Auto-generated method stub
 		
 		int avanzar = seisCaras.lanzarDado();
 		int contar=contador;
 		if (avanzar==3) {
-			this.avanza=avanzar;
-			this.VelocidadUltimoTurno [contar]=avanzar;
-			this.VelocidadAlcanzadaMaxima [contar]=avanzar;
-			this.contador++;
-		}
-		else {
+			System.out.println("Avanzas " + avanzar +" pasos.");
+			contador++;
+			return avanza[contar]=avanzar;
+		}else {
 			System.out.println("Adivina lo que a salido");
 			int adivina = teclado.nextInt();
-			if (adivina==avanza) {
+			if (adivina==avanzar) {
 				System.out.println("Has acertado te moveras " + avanzar +" pasos.");
-				this.avanza=avanzar;
-				this.VelocidadUltimoTurno [contar]=avanzar;
-				this.VelocidadAlcanzadaMaxima [contar]=avanzar;
-				this.contador++;			
+				contador++;
+				return avanza[contar]=avanzar;			
 				}else {
 				System.out.println("Lo sentimos salio el numero " + avanzar+ ". Intentelo el proximo turno.");
-				this.avanza=0;
-				this.VelocidadUltimoTurno [contar]=0;
-				this.VelocidadAlcanzadaMaxima [contar]=0;
-				this.contador++;			
+				contador++;
+				return avanza[contar]=0;			
 				}
 			
 		}
 		
 	}
+	
 	
 }

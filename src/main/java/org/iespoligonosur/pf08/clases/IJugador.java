@@ -39,5 +39,5 @@ public interface IJugador {
 	 * Este método lanza el dado del jugador que se comportara segun su tipo.
 	 * El avance modifica el estado interno del objeto
 	 */
-	public void avanza(Scanner teclado);
+	public int avanza(Scanner teclado);
 }

@@ -1,8 +1,16 @@
 package org.iespoligonosur.pf08.main;
-
+import org.iespoligonosur.pf08.clases.JugadorBasico;
 import java.time.LocalDateTime;
+import java.util.Scanner;
 
+import org.iespoligonosur.pf08.clases.Tortuga;
 import org.iespoligonosur.pf08.clases.IJugador;
+import org.iespoligonosur.pf08.clases.Liebre;
+import org.iespoligonosur.pf08.clases.DadoBase;
+import org.iespoligonosur.pf08.clases.CorreCaminos;
+import org.iespoligonosur.pf08.clases.TipoJugador;
+import org.iespoligonosur.pf08.clases.IDado;
+
 
 public class ProgramaCarrera {
 
@@ -25,6 +33,12 @@ public class ProgramaCarrera {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+
+	
+	IJugador s = new Liebre("ruben");
+	s.avanza(teclado);
+	System.out.println(s.getVelocidadUltimoTurno());
 	}
 	
 	/**

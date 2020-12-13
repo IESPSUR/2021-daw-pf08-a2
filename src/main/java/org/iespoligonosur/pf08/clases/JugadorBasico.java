@@ -19,4 +19,17 @@ public abstract class JugadorBasico implements IJugador {
 		// TODO Auto-generated constructor stub
 	}
 
+	public JugadorBasico(String nombre) {
+		this.nombre=nombre;
+		// TODO Auto-generated constructor stub
+	}
+	public String getNombre() {
+		// TODO Auto-generated method stub
+		return nombre;
+	}
+	
+	/*public void setNombre(String Nombre) {
+		this.nombre=Nombre;
+	}*/
+
 }

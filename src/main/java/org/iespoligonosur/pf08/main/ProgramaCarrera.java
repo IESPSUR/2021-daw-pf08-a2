@@ -38,7 +38,7 @@ public class ProgramaCarrera {
 	/**
 	 * es una prueba de dado para tortuga y liebre
 	 */
-	IJugador l = new Liebre("ruben");
+	IJugador l = new IJUGADOR("ruben");
 	IJugador t = new Tortuga("manuel");
 	IJugador c = new CorreCaminos("lolo");
 
@@ -64,8 +64,21 @@ public class ProgramaCarrera {
 	 * con la ayuda del usuario que introduce los datos a travÃ©s de
 	 * la consola.
 	 */
-	private void creaJugadores() {
-		
+	private void creaJugadores(Scanner teclado) {
+		System.out.println("¿Cuanto usuario desea crear? \n[1-6]: ");
+		int numero = teclado.nextInt();
+		for (int i=0; i<=numero; i++) {
+			System.out.println("¿Con que animal desea participar? \n[Tortuga/Liebre/Correcaminos]: ");
+			String animal = teclado.next();
+			System.out.println("Introduzca su nombre de usuario: ");
+			String usuario =teclado.next();
+			switch (animal) {
+			case ("Tortuga"):jugadores [i]= new Tortuga (usuario); break;
+			case ("Liebre"):jugadores [i]= new Liebre (usuario); break;
+			case ("Correcaminos"):jugadores [i]= new CorreCaminos (usuario); break;			
+			}
+			//jugadores [i]= new (usuario);
+		}
 	}
 	
 	/**

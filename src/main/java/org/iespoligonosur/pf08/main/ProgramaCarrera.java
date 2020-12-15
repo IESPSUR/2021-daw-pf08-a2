@@ -15,7 +15,7 @@ import org.iespoligonosur.pf08.clases.IDado;
 public class ProgramaCarrera {
 
 	//Array con los jugadores
-	private IJugador [] jugadores = new IJugador[6];
+	private static IJugador [] jugadores = new IJugador[6];
 	private int longitudPistaCarreras=100;
 	private int turno;
 	private LocalDateTime inicioPartida;
@@ -35,37 +35,81 @@ public class ProgramaCarrera {
 	public static void main(String[] args) {
 		Scanner teclado = new Scanner(System.in);
 
+		creaJugadores(teclado);
+		System.out.println(jugadores[0].getNombre());
+		
+		
+		
+		
+		
+		
 	/**
 	 * es una prueba de dado para tortuga y liebre
 	 */
-	IJugador l = new Liebre("ruben");
-	IJugador t = new Tortuga("manuel");
-	IJugador c = new CorreCaminos("lolo");
+	/*IJugador 0 = new IJUGADOR("ruben");
+	IJugador 1 = new Tortuga("manuel");
+	IJugador 2 = new CorreCaminos("lolo");
 
 	
 	for(int i=0;i<10;i++) {
-	l.avanza(teclado);
-	t.avanza(null);
-	c.avanza(null);
+	0.avanza(teclado);
+	1.avanza(null);
+	2.avanza(null);
 	}
 	
-	System.out.println( "La velocidad del ultimo turno de liebre fue de "+l.getVelocidadUltimoTurno()+ " pasos");
-	System.out.println("La velocidad alcanzada maxima fue liebre fue de " +l.getVelocidadAlcanzadaMaxima()+ " pasos");
+	System.out.println( "La velocidad del ultimo turno de liebre fue de "+0.getVelocidadUltimoTurno()+ " pasos");
+	System.out.println("La velocidad alcanzada maxima fue liebre fue de " +0.getVelocidadAlcanzadaMaxima()+ " pasos");
 	
-	System.out.println( "La velocidad del ultimo turno de tortuga fue de "+ t.getVelocidadUltimoTurno()+ " pasos");
-	System.out.println("La velocidad alcanzada maxima de tortuga fue de " + t.getVelocidadAlcanzadaMaxima() + " pasos");
+	System.out.println( "La velocidad del ultimo turno de tortuga fue de "+ 1.getVelocidadUltimoTurno()+ " pasos");
+	System.out.println("La velocidad alcanzada maxima de tortuga fue de " + 1.getVelocidadAlcanzadaMaxima() + " pasos");
 
-	System.out.println( "La velocidad del ultimo turno de correcaminos fue de "+ c.getVelocidadUltimoTurno()+ " pasos");
-	System.out.println("La velocidad alcanzada maxima de correcaminos fue de " + c.getVelocidadAlcanzadaMaxima() + " pasos");
-	}
+	System.out.println( "La velocidad del ultimo turno de correcaminos fue de "+ 2.getVelocidadUltimoTurno()+ " pasos");
+	System.out.println("La velocidad alcanzada maxima de correcaminos fue de " + 2.getVelocidadAlcanzadaMaxima() + " pasos");
+	*/
 	
+	
+	}
 	/**
 	 * Este metodo se encarga de crear uno a uno hasta 6 jugadores
 	 * con la ayuda del usuario que introduce los datos a travÃ©s de
 	 * la consola.
 	 */
-	private void creaJugadores() {
+	private static void creaJugadores(Scanner teclado) {
 		
+		int i;
+		String usuario = "";
+		String animal;
+		
+		System.out.println("¿Cuanto usuario desea crear? \n[1-6]: ");
+		int numero = teclado.nextInt();
+		for ( i=0; i<numero; i++) {
+			System.out.println("¿Con que animal desea participar? \n[Tortuga/Liebre/Correcaminos]: ");
+			animal = teclado.next();
+			System.out.println("Introduzca su nombre de usuario: ");
+			usuario =teclado.next();
+			
+			
+			
+			switch (animal) {
+			case ("Tortuga"): jugadores [i]= new Tortuga (usuario); break;
+			case ("Liebre"): jugadores [i]= new Liebre (usuario); break;
+			case ("Correcaminos"): jugadores [i]= new CorreCaminos (usuario);break;	
+			}
+			
+			/*
+			 * 
+			 * este si funciona
+			 * if (animal.equals("Tortuga")) {
+			 
+				 jugadores [i]= new Tortuga (usuario);
+			} else if (animal.equals("Liebre")) {
+				jugadores [i]= new Liebre (usuario);
+			}else if (animal.equals("Correcaminos")) {
+				jugadores [i]= new CorreCaminos (usuario);
+			}else
+				System.out.println("no furula");
+			 */
+		}
 	}
 	
 	/**

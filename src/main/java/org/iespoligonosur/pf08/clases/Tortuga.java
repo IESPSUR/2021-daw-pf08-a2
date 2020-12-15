@@ -36,11 +36,7 @@ public class Tortuga extends JugadorBasico  {
 	}
 
 
-	@Override
-	public String getNombre() {
-		// TODO Auto-generated method stub
-		return getNombre();
-	}
+
 
 	@Override
 	public TipoJugador getTipo() {

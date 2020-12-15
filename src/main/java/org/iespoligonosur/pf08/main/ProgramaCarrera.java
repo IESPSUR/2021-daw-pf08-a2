@@ -36,10 +36,25 @@ public class ProgramaCarrera {
 		Scanner teclado = new Scanner(System.in);
 
 		creaJugadores(teclado);
-		System.out.println(jugadores[0].getNombre());
 		
 		
-		
+		for(int i=0;i<10;i++) {
+			jugadores[0].avanza(teclado);
+			jugadores[1].avanza(teclado);
+			jugadores[2].avanza(teclado);
+			}
+			
+			System.out.println( "La velocidad del ultimo turno de "+jugadores[0].getNombre()+" fue de "+jugadores[0].getVelocidadUltimoTurno()+ " pasos");
+			System.out.println("La velocidad alcanzada maxima fue "+jugadores[0].getNombre()+" fue de " +jugadores[0].getVelocidadAlcanzadaMaxima()+ " pasos");
+
+			System.out.println( "La velocidad del ultimo turno de "+jugadores[1].getNombre()+" fue de "+ jugadores[1].getVelocidadUltimoTurno()+ " pasos");
+			System.out.println("La velocidad alcanzada maxima de "+jugadores[1].getNombre()+" fue de " + jugadores[1].getVelocidadAlcanzadaMaxima() + " pasos");
+			System.out.println(jugadores[1].getNombre());
+
+			System.out.println( "La velocidad del ultimo turno de "+jugadores[2].getNombre()+" fue de "+ jugadores[2].getVelocidadUltimoTurno()+ " pasos");
+			System.out.println("La velocidad alcanzada maxima de "+jugadores[2].getNombre()+" fue de " + jugadores[2].getVelocidadAlcanzadaMaxima() + " pasos");
+			System.out.println(jugadores[2].getNombre());
+
 		
 		
 		
@@ -66,6 +81,8 @@ public class ProgramaCarrera {
 	System.out.println( "La velocidad del ultimo turno de correcaminos fue de "+ 2.getVelocidadUltimoTurno()+ " pasos");
 	System.out.println("La velocidad alcanzada maxima de correcaminos fue de " + 2.getVelocidadAlcanzadaMaxima() + " pasos");
 	*/
+		
+		
 	
 	
 	}

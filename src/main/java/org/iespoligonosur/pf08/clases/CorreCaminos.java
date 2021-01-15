@@ -2,41 +2,40 @@ package org.iespoligonosur.pf08.clases;
 
 import java.util.Scanner;
 
-public class CorreCaminos extends JugadorBasico  {
-	private static final TipoJugador tipo = TipoJugador.CORRECAMINOS;
-
-	
+public class CorreCaminos extends JugadorBasico {
+private static final TipoJugador tipo = TipoJugador.CORRECAMINOS;
+	private String nombre;
 	int [] avanza= new int[100]; 
 	int contador=0;
-
 	
-	IDado seisCaras = new DadoBase(10) {
+	IDado DiezCaras = new DadoBase(10) {
+        
 		
-		@Override
-		public int lanzarDado() {
-			int dado=0;
-			dado = (int) Math.floor(Math.random() * numeroCaras + 1);
-			return dado;	
+		@Override	
+	    public int lanzarDado() {
+		int dado=0;
+		dado = (int) Math.floor(Math.random()*numeroCaras+ 1);
+		return dado;
 		}
+		
 	};
+	
 	/**
-	 * metodo para el lanzamiento de dado de 10 caras y cribado de opciones
-	 * @param dado6
-	 * @param teclado
-	 * @return
+	 * @param nombre
 	 */
-
 	public CorreCaminos(String nombre) {
-		super(nombre);
+		super();
+		this.nombre = nombre;
 	}
+
 	@Override
 	public TipoJugador getTipo() {
 		// TODO Auto-generated method stub
-		return tipo;
+		return tipo ;
 	}
+
 	@Override
 	public int getVelocidadUltimoTurno() {
-		// TODO Auto-generated method stub
 		int num = avanza.length;
 		int [] VelocidadUltimoTurno = new int[num];
 		for (int x=0;x<VelocidadUltimoTurno.length;x++)
@@ -47,7 +46,6 @@ public class CorreCaminos extends JugadorBasico  {
 
 	@Override
 	public int getVelocidadAlcanzadaMaxima() {
-		
 		int num = avanza.length;
 		int [] VelocidadAlcanzadaMaxima = new int[num];
 		for (int x=0;x<VelocidadAlcanzadaMaxima.length;x++)
@@ -72,70 +70,28 @@ public class CorreCaminos extends JugadorBasico  {
 			
 		}
 		return VelocidadAlcanzadaMaxima[contador-1];
-
 	}
+
 	@Override
 	public void resetea() {
-		// TODO Auto-generated method stub
 		contador=0;
-
+		
 	}
+
 	@Override
 	public int avanza(Scanner teclado) {
-		// TODO Auto-generated method stub
-		int avanzar = seisCaras.lanzarDado();
+		int avanzar = DiezCaras.lanzarDado();
 		int contar=contador;
-		int resto;
-		
-		resto = avanzar % 2;
-		if (resto==0) {
-			System.out.println("Ha salido un numero PAR te moveras " + avanzar +" pasos.");
+		if (avanzar %2==0) {
+			System.out.println("Avanzas " + avanzar +" pasos.");
 			contador++;
 			return avanza[contar]=avanzar;
-		} else {
-			System.out.println("Lo sentimos salio el numero IMPAR " + avanzar+ ". Intentelo el proximo turno.");
+		}else {
 			contador++;
 			return avanza[contar]=0;
 		}
-
-	}
-	
-
-	
-	
-	private int dado;
-	
-	public CorreCaminos() {
-		
-	}
-
-	public CorreCaminos(int dado) {
-		super();
-		this.dado = dado;
-	}
-
-	/**
-	 * @return the dado
-	 */
-	public int getDado() {
-		return dado;
-	}
-
-	/**
-	 * @param dado the dado to set
-	 */
-	public void setDado(int dado) {
-		this.dado = dado;
-	}
-	public  void dadoCorreCamino() {
-		int dado = (int) Math.floor(Math.random()*100);
-		if ( dado%2==0) {
-			
-		}
-		
-		
-	}
-	
 		
 	
-}
+	
+	}
+	}

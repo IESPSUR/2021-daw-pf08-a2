@@ -2,4 +2,5 @@
 
 Ruben Castellano Fernandez
 Eddy Alejandro González Chávez
+Sokayna BAGARI
 
